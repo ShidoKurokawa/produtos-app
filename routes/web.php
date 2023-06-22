@@ -19,5 +19,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/produtos-app', ProductController::class);
-Route::resource('/produtos-app', CategoryController::class);
+Route::resource('/product', ProductController::class);
+Route::resource('/category', CategoryController::class);

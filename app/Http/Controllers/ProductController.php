@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
+
+use function PHPUnit\Framework\returnSelf;
 
 class ProductController extends Controller
 {
@@ -11,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all();
+        return view('product.index', compact('products'));
     }
 
     /**
@@ -19,7 +23,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('product.create');
     }
 
     /**
@@ -27,7 +31,16 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|min:3',
+            'price' => 'required|numeric',
+            'weight' => 'required|numeric'
+        ]);
+
+        $product = new Product($validated);
+        $product->save();
+        
+        return redirect()->route('product.index');
     }
 
     /**
@@ -35,7 +48,9 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $product = Product::find($id);
+        // dd($product);
+        return view('product.show', compact('product'));
     }
 
     /**
@@ -43,7 +58,9 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $product = Product::find($id);
+        // dd($product);
+        return view('product.edit', compact('product'));
     }
 
     /**
@@ -51,7 +68,17 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|min:3',
+            'price' => 'required|numeric',
+            'weight' => 'required|numeric'
+        ]);
+        
+        $product = Product::findOrFail($id);
+        $product->update($validated);
+        // dd($product);
+            
+        return redirect()->route('product.show', compact('product'));
     }
 
     /**
@@ -59,6 +86,9 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $product->delete();
+        // dd($id);
+        return 'produto deletado';
     }
 }

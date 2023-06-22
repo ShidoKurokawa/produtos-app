@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Product extends Model
 {
     use HasFactory;
+
+    // protected $guarded = ['id', 'timestamps'];
+    protected $fillable = ['name','price', 'weight']; 
+
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class, 'product_category', 'product_id', 'category_id');
