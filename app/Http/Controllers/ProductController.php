@@ -56,9 +56,10 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Product $product)
     {
-        $product = Product::find($id);
+        // Referencia para quando mudar os () da parte de cima
+        // $product = Product::find($id);
         // dd($product);
         return view('product.edit', compact('product'));
     }
