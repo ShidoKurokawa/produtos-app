@@ -2,6 +2,9 @@
 
 @section('content')
     <div>
+        <h2>Produtos</h2>
+    </div>
+    <div class="container">
         <table class="table">
             <thead>
                 <tr>
@@ -9,6 +12,7 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Preço</th>
                     <th scope="col">Peso</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -18,6 +22,7 @@
                         <td>{{ $p->name }}</td>
                         <td>{{ $p->price }}</td>
                         <td>{{ $p->weight }}</td>
+                        <td><a href="/product/{{ $p->id }}" class="btn"><i class="fa-solid fa-eye"></i></a></td>
                     </tr>
                 @endforeach
             </tbody>

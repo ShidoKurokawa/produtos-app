@@ -12,6 +12,7 @@
 </head>
 <body>
     <div id="">
+        @include('layout.navbar')
         <main class="py-4">
             @yield('content')
         </main>
