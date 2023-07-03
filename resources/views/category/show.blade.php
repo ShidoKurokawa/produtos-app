@@ -4,7 +4,7 @@
     <div>
         <h2></h2>
     </div>
-    <div class="container">
+    <div>
         <label for="" class="form-label">Nome</label>
         <div class="input-group mb-3">
             <input type="text" name="name" class="form-control" value="{{ $category->name }}" readonly>

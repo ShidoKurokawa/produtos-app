@@ -13,7 +13,8 @@
 <body>
     <div id="">
         @include('layout.navbar')
-        <main class="py-4">
+        <main class="py-4 container">
+            @include('flash-message')
             @yield('content')
         </main>
         @hasSection('javascript')

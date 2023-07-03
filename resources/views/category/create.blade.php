@@ -4,7 +4,7 @@
     <div>
         <h2></h2>
     </div>
-    <div class="container">
+    <div>
         <form action="/category" method="POST">
             @csrf
             <label for="" class="form-label">Nome</label>

@@ -4,9 +4,10 @@
     <div>
         <h2></h2>
     </div>
-    <div class="container">
-        <form action="/category" method="POST">
+    <div>
+        <form action="/category/{{ $category->id }}" method="POST">
             @csrf
+            @method('PATCH')
             <label for="" class="form-label">Nome</label>
             <div class="input-group mb-3">
                 <input type="text" name="name" class="form-control" value="{{ $category->name }}">

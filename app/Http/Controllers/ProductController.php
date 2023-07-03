@@ -90,6 +90,6 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->delete();
         // dd($id);
-        return 'produto deletado';
+        return redirect()->route('product.index', compact('product'));
     }
 }
