@@ -36,7 +36,7 @@ class CategoryController extends Controller
         $category = new Category($validated);
         $category->save();
 
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with('success', 'Categoria cadastrada com sucesso!');
     }
 
     /**
@@ -80,6 +80,6 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->delete();
 
-        return redirect()->route('category.index', compact('category'));
+        return redirect()->route('category.index', compact('category'))->with('warning', 'Categoria excluída com sucesso!');
     }
 }

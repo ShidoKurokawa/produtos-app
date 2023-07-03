@@ -40,7 +40,7 @@ class ProductController extends Controller
         $product = new Product($validated);
         $product->save();
         
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('success', 'Produto cadastrado com sucesso!');
     }
 
     /**
@@ -79,7 +79,7 @@ class ProductController extends Controller
         $product->update($validated);
         // dd($product);
             
-        return redirect()->route('product.show', compact('product'));
+        return redirect()->route('product.show', compact('product'))->with('success', 'Produto atualizado com sucesso!');
     }
 
     /**
@@ -90,6 +90,6 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->delete();
         // dd($id);
-        return redirect()->route('product.index', compact('product'));
+        return redirect()->route('product.index', compact('product'))->with('warning', 'Produto excluído com sucesso!');
     }
 }
