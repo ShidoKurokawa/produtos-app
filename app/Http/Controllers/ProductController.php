@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product.create');
+        $categories = Category::all();
+        // dd($categories);
+        return view('product.create', compact('categories'));
     }
 
     /**
@@ -34,11 +37,14 @@ class ProductController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|min:3',
             'price' => 'required|numeric',
-            'weight' => 'required|numeric'
+            'weight' => 'required|numeric',
+            'categories' => 'array'
         ]);
-
+        // dd($validated);
         $product = new Product($validated);
         $product->save();
+
+        $product->categories()->attach($validated['categories']);
         
         return redirect()->route('product.index')->with('success', 'Produto cadastrado com sucesso!');
     }
@@ -61,7 +67,8 @@ class ProductController extends Controller
         // Referencia para quando mudar os () da parte de cima
         // $product = Product::find($id);
         // dd($product);
-        return view('product.edit', compact('product'));
+        $categories = Category::all();
+        return view('product.edit', compact('product', 'categories'));
     }
 
     /**
@@ -72,12 +79,14 @@ class ProductController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|min:3',
             'price' => 'required|numeric',
-            'weight' => 'required|numeric'
+            'weight' => 'required|numeric',
+            'categories' => 'array'
         ]);
         
         $product = Product::findOrFail($id);
         $product->update($validated);
         // dd($product);
+        $product->categories()->sync($validated['categories']);
             
         return redirect()->route('product.show', compact('product'))->with('success', 'Produto atualizado com sucesso!');
     }

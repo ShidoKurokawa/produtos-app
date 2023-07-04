@@ -22,11 +22,10 @@
             </div>
             <label for="" class="form-label">Categorias</label>
             <div class="input-group mb-3">
-                <select class="form-select" multiple>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
+                <select class="form-select" name="categories[]" multiple>
+                    @foreach ($categories as $c)
+                        <option value="{{ $c->id }}" @selected($product->categories->contains($c->id))>{{ $c->name }}</option>
+                    @endforeach
                 </select>
             </div>
             <div>
