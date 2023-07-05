@@ -2,7 +2,7 @@
 
 @section('content')
     <div>
-        <h2></h2>
+        <h2 class="text-center mb-3">Cadatro de Categoria</h2>
     </div>
     <div>
         <form action="/category" method="POST">

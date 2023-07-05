@@ -2,11 +2,11 @@
 
 @section('content')
 	<div>
-		<h2></h2>
+		<h2 class="text-center mb-3">Tabela de Categorias</h2>
 	</div>
 	<div>
-		<table class="table">
-			<thead>
+		<table class="table table-striped">
+			<thead class="table-secondary">
 			<tr>
 				<th scope="col">ID</th>
 				<th scope="col">Nome</th>

@@ -2,7 +2,7 @@
 
 @section('content')
     <div>
-        <h2></h2>
+        <h2 class="text-center mb-3">Edição de Categoria</h2>
     </div>
     <div>
         <form action="/category/{{ $category->id }}" method="POST">

@@ -2,7 +2,7 @@
 
 @section('content')
     <div>
-        <h2></h2>
+        <h2 class="text-center mb-3">Exibição de Categoria</h2>
     </div>
     <div>
         <label for="" class="form-label">Nome</label>

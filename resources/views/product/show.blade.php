@@ -2,7 +2,7 @@
 
 @section('content')
     <div>
-        <h3></h3>
+        <h2 class="text-center mb-3">Exibição de Produto</h2>
     </div>
     <div class="container">
         <label for="" class="form-label">Nome</label>
@@ -17,15 +17,12 @@
         <div class="input-group mb-3">
             <input type="text" name="weight" class="form-control" value="{{ $product->weight }}" readonly>
         </div>
-        {{-- <label for="" class="form-label">Categorias</label>
+        <label for="" class="form-label">Categorias</label>
         <div class="input-group mb-3">
-            <select class="form-select" multiple>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-            </select>
-        </div> --}}
+            @foreach ($product->categories as $category)
+                <input type="text" class="form-control" value="{{ $category->name }}" readonly>
+            @endforeach
+        </div>
         <div>
             <form action="/product/{{ $product->id }}" method="POST">
                 @csrf
