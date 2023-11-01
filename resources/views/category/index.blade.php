@@ -24,6 +24,9 @@
 			</tbody>
 		</table>
 	</div>
+	<div style="text-align:right">
+        <a class="btn btn-info" type="button" href="/">Voltar</a>
+    </div>
 @endsection
 
 @section('javascript')
