@@ -11,7 +11,7 @@
         </div>
         <label for="" class="form-label">Preço</label>
         <div class="input-group mb-3">
-            <input type="text" name="price" class="form-control" value="{{ $product->price }}" readonly>
+            <input type="text" name="price" class="form-control" value="{{$product->price }}" readonly>
         </div>
         <label for="" class="form-label">Peso</label>
         <div class="input-group mb-3">

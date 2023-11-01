@@ -21,7 +21,7 @@
                     <tr>
                         <th scope="row">{{ $p->id }}</th>
                         <td>{{ $p->name }}</td>
-                        <td>{{ $p->price }}</td>
+                        <td>{{ 'R$ ' . $p->price }}</td>
                         <td>{{ $p->weight }}</td>
                         <td>
                             @foreach ($p->categories as $category)
