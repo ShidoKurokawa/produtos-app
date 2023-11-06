@@ -13,7 +13,7 @@
             </div>
             <div>
                 <button class="btn btn-secondary" type="submit">Cadastrar</button>
-                <a class="btn btn-info" type="button" href="/">Voltar</a>
+                <a class="btn btn-info" type="button" href="/category/">Voltar</a>
             </div>
         </form>
     </div>
